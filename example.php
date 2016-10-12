@@ -1,26 +1,24 @@
 <?php
-header('Content-Type: application/rss+xml');
-
 $rss = new rss($db, 'articles');
+
 ?>
-<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
     <channel>
-        <title></title>
-        <description></description>
+        <title>TITLE OF THIS RSS FLUX</title>
+        <description>DESCRIPTION OF THIS RSS FLUX</description>
         <lastBuildDate><?= $rss->getLastBuildDate() ?></lastBuildDate>
-        <link></link>
+        <link>LINK OF THIS RSS FLUX</link>
         <?php
         foreach ($rss->getRss(0, 25) AS $infos) {
             ?>
             <item>
-                <title><?= $infos['name'] ?></title>
-                <description><?= substr($infos['desc_'], 0, 500).'...' ?></description>
-                <pubDate><?= date(DATE_RSS, strtotime($infos['date_time_post'])) ?></pubDate>
-                <link><?= $infos['id']?></link>
-                <image>
-                    <url><?= $infos['url_img']?></url>
-                    <link><?= $infos['id']?></link>
+                <title>TITLE OF THIS ITEM</title>
+                <description>DESCRIPTION OF THIS ITEM</description>
+                <pubDate>DATE OF PUBLICATION<!-- note : use getRssDate(DATE) class function for return a date to RSS date format --></pubDate>
+                <link>LINK OF THIS ITEM</link>             
+                <image><!--optionaly-->
+                    <url>URL OF IMAGE (HTML ACCESS)</url>
+                    <link>LINK OF IMAGE (HREF ACCESS)</link>
                 </image>
             </item>
             <?php

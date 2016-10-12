@@ -11,10 +11,22 @@ class rss
     private $db_use;
     private $table;
 
-    public function __construct($db,$table)
+
+    /**
+     * rss constructor.
+     * Defined the sql table and database connexion used for this class
+     *
+     * @param $db
+     * @param $table
+     */
+    public function __construct($db, $table)
     {
         $this->db_use = $db;
         $this->table = $table;
+
+        //important header content type for Web broswer
+		header('Content-Type: application/rss+xml');
+	
     }
 
     /**
@@ -41,9 +53,18 @@ class rss
 
         $date = $req->fetch()['date_time_post'];
 
-        //return date to RSS syntax
-        return date(DATE_RSS, strtotime($date));
+        return $this->getRssDate($date);
 
         $req->closeCursor();
+    }
+
+    /**
+     * Return a normal date in RSS format
+     *
+     * @param $date
+     * @return bool|string
+     */
+    public function getRssDate($date){
+        return date(DATE_RSS, strtotime($date));
     }
 }
