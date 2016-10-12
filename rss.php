@@ -3,7 +3,7 @@
  * This class generate rss flux
  * Please visit example.php
  *
- * @author Toto <toto[@]toto.com>
+ * @author le_futuriste <contact@lefuturiste.fr>
  */
 class rss
 {
