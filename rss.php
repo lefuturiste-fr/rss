@@ -1,9 +1,9 @@
 <?php
 /**
- * This class generate rss flux
- * Please visit example.php
+ * This class allows you to generate an RSS feed from a xml file already designed by you: visit example.php
+ * Coming: function to generate XML
  *
- * @author Toto <toto[@]toto.com>
+ * @author Le_Futuriste <contact@lefuturiste.fr>
  */
 class rss
 {
